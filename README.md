@@ -18,15 +18,14 @@ This project focuses on recognizing hand-drawn sketches using deep learning tech
 ```bash
 git clone https://github.com/yourusername/Hand-Drawn-Sketch-Recognition.git
 cd Hand-Drawn-Sketch-Recognition
+```
 2. Install Required Packages
-bash
-Copy code
+```
 pip install -r requirements.txt
+```
 3. Prepare the Dataset
 Place your dataset in the following directory structure:
-
-lua
-Copy code
+```
 Hand-Drawn-Sketch-Recognition/
 |-- Train/
 |   |-- class1/
@@ -48,32 +47,28 @@ Hand-Drawn-Sketch-Recognition/
 |-- Train.csv
 |-- Validation.csv
 |-- modified_labels.csv
+```
 4. Train the Model
 Run the following script to train the model:
-
-bash
-Copy code
+```
 python train.py
+```
 5. Generate Predictions
 After training, you can generate predictions on the test dataset:
-
-bash
-Copy code
+```
 python predict.py
+```
 Training and Validation
 The model is trained using an ImageDataGenerator for data augmentation and preprocessing. The training process includes:
 
 Data Augmentation:
-
-python
-Copy code
+```
 train_datagen = ImageDataGenerator(
     rescale=1./255,
 )
+```
 Data Generator:
-
-python
-Copy code
+```
 train_generator = train_datagen.flow_from_dataframe(
     dataframe=train_df,
     directory='Train',
@@ -83,10 +78,9 @@ train_generator = train_datagen.flow_from_dataframe(
     batch_size=32,
     class_mode='categorical'
 )
+```
 Model Architecture:
-
-python
-Copy code
+```
 model = Sequential([
     vgg_model1,
     GlobalAveragePooling2D(),
@@ -100,28 +94,25 @@ model = Sequential([
     BatchNormalization(),
     Dense(250, activation='softmax')
 ])
+```
 Model Compilation:
-
-python
-Copy code
+```
 model.compile(optimizer='adam',
               loss='categorical_crossentropy',
               metrics=['accuracy'])
+```
 Model Training:
-
-python
-Copy code
+```
 history = model.fit_generator(
     train_generator,
     epochs=25,
     validation_data=val_generator,
     verbose=1
 )
+```
 Evaluation
 Training and validation loss and accuracy are plotted to evaluate the model performance.
-
-python
-Copy code
+```
 import matplotlib.pyplot as plt
 
 # Plotting the training and validation loss
@@ -145,11 +136,10 @@ plt.ylabel('Accuracy')
 plt.legend()
 plt.grid(True)
 plt.show()
+```
 Prediction
 A CSV file is created with the filenames of the test set, and predictions are generated and stored in another CSV file.
-
-python
-Copy code
+```
 import os
 import csv
 
@@ -163,6 +153,7 @@ filenames = os.listdir(test_dir)
 csv_file = "testset.csv"
 with open(csv_file, "w", newline="") as file:
     writer = csv.writer(file)
+```
     writer.writerow(["Filename"])
     writer.writerows([[filename] for filename in filenames])
 
