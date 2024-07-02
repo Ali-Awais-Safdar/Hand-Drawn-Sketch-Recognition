@@ -153,10 +153,10 @@ filenames = os.listdir(test_dir)
 csv_file = "testset.csv"
 with open(csv_file, "w", newline="") as file:
     writer = csv.writer(file)
-```
     writer.writerow(["Filename"])
     writer.writerows([[filename] for filename in filenames])
 
 print(f"CSV file '{csv_file}' created successfully.")
+```
 License
 This project is licensed under the MIT License.
