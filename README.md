@@ -1,20 +1,21 @@
-﻿# Hand-Drawn-Sketch-Recognition
+# Hand-Drawn-Sketch-Recognition
 
-Project Overview
+## Project Overview
 This project focuses on recognizing hand-drawn sketches using deep learning techniques. The model leverages the VGG19 architecture pre-trained on ImageNet for feature extraction, followed by a custom dense network for classification. The project includes data preprocessing, training, and validation processes, as well as generating predictions on a test dataset.
 
-Dependencies
-Python 3.x
-TensorFlow
-Keras
-NumPy
-pandas
-OpenCV
-Matplotlib
-Setup Instructions
-1. Clone the Repository
-bash
-Copy code
+## Dependencies
+- Python 3.x
+- TensorFlow
+- Keras
+- NumPy
+- pandas
+- OpenCV
+- Matplotlib
+
+## Setup Instructions
+
+### 1. Clone the Repository
+```bash
 git clone https://github.com/yourusername/Hand-Drawn-Sketch-Recognition.git
 cd Hand-Drawn-Sketch-Recognition
 2. Install Required Packages
